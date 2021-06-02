@@ -119,7 +119,7 @@ def dataGob():
 
 def dataGobCand():
     content = os.listdir('./etc/data/files')
-    df = pd.read_csv('/etc/data/files/'+content[2]+'/CAMP_GOB_CANDIDATURA_2021.csv')
+    df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_CANDIDATURA_2021.csv')
     df = df.drop(columns=['ID_ESTADO'])
     df = df.set_index('PARTIDO_CI')
     result = df.to_json()
