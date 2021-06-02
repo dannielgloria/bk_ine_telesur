@@ -47,6 +47,6 @@ def get_desatoraDatos():
 
 @app.route('/directorios',methods=['GET'])
 def get_direcciones():
-    resp = direcciones()
+    resp = str(direcciones())
     # resp.status_code=200
     return resp
