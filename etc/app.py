@@ -8,52 +8,46 @@ from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas, re
 
 # FLASK Instance my application
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app)
 
 @app.route('/datosAyuntamiento',methods=['GET'])
-@cross_origin()
 def get_dataAyun():
     resp = dataAyun()
     resp = json.loads(resp)
     return resp
 
 @app.route('/datosDiputaciones',methods=['GET'])
-@cross_origin()
 def get_dataDiputaciones():
     resp = dataDip()
     resp = json.loads(resp)
     return resp
 
 @app.route('/datosGobernatura',methods=['GET'])
-@cross_origin()
 def get_dataGob():
     resp = dataGob()
     resp = json.loads(resp)
     return resp
 
 @app.route('/candidatosGobernatura',methods=['GET'])
-@cross_origin()
 def get_dataGobCand():
     resp = dataGobCand()
     resp = json.loads(resp)
     return resp
 
 @app.route('/datosJuntas',methods=['GET'])
-@cross_origin()
 def get_dataJuntas():
     resp = dataJuntas()
     resp = json.loads(resp)
     return resp
 
 @app.route('/desatoraDatos',methods=['GET'])
-@cross_origin()
 def get_desatoraDatos():
     removeDS_Store()
     resp = 'DS_Store deleted'
     return resp
 
 @app.route('/directorios',methods=['GET'])
-@cross_origin()
 def get_direcciones():
     resp = str(direcciones())
     # resp.status_code=200
