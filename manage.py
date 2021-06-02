@@ -1,6 +1,6 @@
 from etc.app import app
 
-DEBUG = True
+DEBUG = False
 PORT = 5000
 
 if __name__ == '__main__':
