@@ -57,7 +57,7 @@ def dataAyun():
     pri_prd = pd.to_numeric(df[30]).sum()
     no_reg = pd.to_numeric(df[31]).sum()
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"CAND_IND": cand_ind,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
-    result = json.dumps(data)
+    result = json.dumps(str(data))
     return result
 
 def dataDip():
@@ -83,7 +83,7 @@ def dataDip():
     pri_prd = pd.to_numeric(df[29]).sum()
     no_reg = pd.to_numeric(df[30]).sum()
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
-    result = json.dumps(data)
+    result = json.dumps(str(data))
     return result
     
 
@@ -111,7 +111,7 @@ def dataGob():
     pt_mor = pd.to_numeric(df[30]).sum()
     no_reg = pd.to_numeric(df[31]).sum()
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd, "C_PT_MOR": pt_mor,"NO_REGISTRADOS": no_reg }
-    result = json.dumps(data)
+    result = json.dumps(str(data))
     return result
 
 def dataGobCand():
@@ -146,7 +146,8 @@ def dataJuntas():
     pri_prd = pd.to_numeric(df[29]).sum()
     no_reg = pd.to_numeric(df[30]).sum()
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
-    return data
+    result = json.dumps(str(data))
+    return result
 
 def direcciones():
     content = os.listdir('./etc/data/files')
