@@ -30,4 +30,5 @@ no_reg = pd.to_numeric(df[30]).sum()
 data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
 # data = str(data)
 result = json.dumps(str(data))
-print(data)
+result = json.loads(result)
+print(result)

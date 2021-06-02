@@ -11,26 +11,31 @@ app = Flask(__name__)
 @app.route('/datosAyuntamiento',methods=['GET'])
 def get_dataAyun():
     resp = dataAyun()
+    resp = json.loads(resp)
     return resp
 
 @app.route('/datosDiputaciones',methods=['GET'])
 def get_dataDiputaciones():
     resp = dataDip()
+    resp = json.loads(resp)
     return resp
 
 @app.route('/datosGobernatura',methods=['GET'])
 def get_dataGob():
     resp = dataGob()
+    resp = json.loads(resp)
     return resp
 
 @app.route('/candidatosGobernatura',methods=['GET'])
 def get_dataGobCand():
     resp = dataGobCand()
+    resp = json.loads(resp)
     return resp
 
 @app.route('/datosJuntas',methods=['GET'])
 def get_dataJuntas():
     resp = dataJuntas()
+    resp = json.loads(resp)
     return resp
 
 @app.route('/desatoraDatos',methods=['GET'])
