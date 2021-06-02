@@ -9,3 +9,4 @@ pytz
 requests
 zipfile36
 pandas
+flask-cors
