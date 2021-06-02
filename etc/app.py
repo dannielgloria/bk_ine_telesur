@@ -37,3 +37,10 @@ def get_dataJuntas():
     resp = dataJuntas()
     resp.status_code=200
     return resp
+
+@app.route('/desatoraDatos',methods=['GET'])
+def get_desatoraDatos():
+    removeDS_Store()
+    resp = 'DS_Store deleted'
+    resp.status_code=200
+    return resp
