@@ -119,7 +119,7 @@ def dataGob():
 
 def dataGobCand():
     content = os.listdir('./etc/data/files')
-    df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_CANDIDATURA_2021.csv')
+    df = pd.read_csv('./etc/data/files/'+content[1]+'/CAMP_GOB_CANDIDATURA_2021.csv')
     df = df.drop(columns=['ID_ESTADO'])
     df = df.set_index('PARTIDO_CI')
     result = df.to_json()
@@ -127,7 +127,7 @@ def dataGobCand():
     
 def dataJuntas():
     content = os.listdir('./etc/data/files')
-    df = pd.read_csv('./etc/data/files/'+content[3]+'/CAMP_JUNTAS_2021.csv', header=None, sep='\n')
+    df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_JUNTAS_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4]])
     total = df[33].sum()
