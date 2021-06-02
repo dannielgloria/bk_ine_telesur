@@ -9,9 +9,9 @@ from pytz import timezone
 
 df = pd.read_csv('./files/20210601_1852_PREP_JUNTAS_CAMP/CAMP_JUNTAS_2021.csv', header=None, sep='\n')
 df = df[0].str.split(',', expand=True)
-df = df.drop(df.index[[0,1,2,3,]])
+df = df.drop(df.index[[0,1,2,3,4,5]])
 total = df[35].sum()
-pan = df[16].sum()
+pan = df[int(16)].sum()
 pri = df[17].sum()
 prd = df[18].sum()
 pt = df[19].sum()
