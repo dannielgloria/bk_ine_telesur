@@ -2,7 +2,7 @@ import re
 import time
 import json
 from flask import Flask, request, flash, jsonify
-from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas, removeDS_Store
+from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas, removeDS_Store, direcciones
 # from data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas
 
 # FLASK Instance my application
@@ -42,5 +42,11 @@ def get_dataJuntas():
 def get_desatoraDatos():
     removeDS_Store()
     resp = 'DS_Store deleted'
+    resp.status_code=200
+    return resp
+
+@app.route('/directorios',methods=['GET'])
+def get_direcciones():
+    resp = direcciones()
     resp.status_code=200
     return resp

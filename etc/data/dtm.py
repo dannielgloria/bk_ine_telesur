@@ -57,10 +57,6 @@ def dataAyun():
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"CAND_IND": cand_ind,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
     result = json.dumps(data)
     return result
-    
-def dataAyunCand():
-    result = "esto no sirve jsjsjsjsjsjs"
-    return result
 
 def dataDip():
     content = os.listdir('./etc/data/files')
@@ -87,13 +83,10 @@ def dataDip():
     result = json.dumps(data)
     return result
     
-def dataDipCand():
-    result = "esto no sirve jsjsjsjsjsjs"
-    return result
 
 def dataGob():
     content = os.listdir('./etc/data/files')
-    df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
+    df = pd.read_csv('./etc/data/files/'+content[1]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4]])
     total = df[34].sum()
@@ -119,7 +112,7 @@ def dataGob():
 
 def dataGobCand():
     content = os.listdir('./etc/data/files')
-    df = pd.read_csv('./etc/data/files/'+content[3]+'/CAMP_GOB_CANDIDATURA_2021.csv')
+    df = pd.read_csv('./etc/data/files/'+content[1]+'/CAMP_GOB_CANDIDATURA_2021.csv')
     df = df.drop(columns=['ID_ESTADO'])
     df = df.set_index('PARTIDO_CI')
     result = df.to_json()
@@ -149,9 +142,9 @@ def dataJuntas():
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
     return data
 
-def dataJuntasCand():
-    result = "esto no sirve jsjsjsjsjsjs"
-    return result
+def direcciones():
+    content = os.listdir('./etc/data/files')
+    return content
 
 def removeDS_Store():
     os.remove('./etc/data/files/.DS_Store')
