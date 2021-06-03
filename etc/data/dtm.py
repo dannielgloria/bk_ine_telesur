@@ -112,9 +112,27 @@ def dataGob():
     pri_prd = pd.to_numeric(df[29]).sum()
     pt_mor = pd.to_numeric(df[30]).sum()
     no_reg = pd.to_numeric(df[31]).sum()
-    data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd, "C_PT_MOR": pt_mor,"NO_REGISTRADOS": no_reg }
+    panP = (pan*100)/total
+    priP = (pri*100)/total
+    prdP = (prd*100)/total
+    ptP = (pt*100)/total
+    pvemP = (pvem*100)/total
+    mcP = (mc*100)/total
+    morP = (mor*100)/total
+    pesP = (pes*100)/total
+    rspP = (rsp*100)/total
+    fmP = (fm*100)/total
+    pan_pri_prdP = (pan_pri_prd*100)/total
+    pan_priP = (pan_pri*100)/total
+    pan_prdP = (pan_prd*100)/total
+    pri_prdP = (pri_prd*100)/total
+    pt_morP = (pt_mor*100)/total
+    no_regP = (no_reg*100)/total
+    print(total)
+    data = { "PAN":{"Name":"none","votes":pan,"percent":panP},"PRI":{"Name":"none","votes":pri,"percent":priP},"PRD":{"Name":"none","votes":prd,"percent":prdP},"PT":{"Name":"none","votes":pt,"percent":ptP},"PVEM":{"Name":"none","votes":pvem,"percent":pvemP},"MC":{"Name":"ELISEO FERNANDEZ MONTUFAR","votes":mc,"percent":mcP},"MOR":{"Name":"none","votes":mor,"percent":morP},"PES":{"Name":"NIC-THE-HA AGUILERA SILVA","votes":pes,"percent":pesP},"RSP":{"Name":"MARIA MAGDALENA COCOM ARBEZ","votes":rsp,"percent":rspP},"FM":{"Name":"LUIS ALONSO GARCIA HERNANDEZ","votes":fm,"percent":fmP},"C_PAN_PRI_PRD": {"Name":"CHRISTIAN MISHEL CASTRO BELLO","votes":pan_pri_prd,"percent":pan_pri_prdP}, "C_PAN_PRI":{"Name":"none","votes":pan_pri,"percent":pan_priP},"C_PAN_PRD":{"Name":"none","votes":pan_prd,"percent":pan_prdP}, "C_PRI_PRD": {"Name":"none","votes":pri_prd,"percent":pri_prdP}, "C_PT_MOR":{"Name":"LAYDA ELENA SANSORES SAN ROMAN","votes":pt_mor,"percent":pt_morP},"NO_REGISTRADOS": {"Name":"none","votes":no_reg,"percent":no_regP} }
     result = json.dumps(str(data))
     result = json.loads(result)
+    result=result.replace("'", '"')
     return result
 
 def dataGobCand():
