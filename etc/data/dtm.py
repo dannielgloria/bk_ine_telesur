@@ -59,6 +59,7 @@ def dataAyun():
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"CAND_IND": cand_ind,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
     result = json.dumps(str(data))
     result = json.loads(result)
+    result=result.replace("'", '"')
     return result
 
 def dataDip():
@@ -86,6 +87,7 @@ def dataDip():
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
     result = json.dumps(str(data))
     result = json.loads(result)
+    result=result.replace("'", '"')
     return result
     
 
@@ -172,6 +174,7 @@ def dataJuntas():
     data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
     result = json.dumps(str(data))
     result = json.loads(result)
+    result=result.replace("'", '"')
     return result
 
 def direcciones():
