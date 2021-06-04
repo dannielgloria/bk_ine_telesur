@@ -113,7 +113,8 @@ def dataGob():
     pan_prd = pd.to_numeric(df[28]).sum()
     pri_prd = pd.to_numeric(df[29]).sum()
     pt_mor = pd.to_numeric(df[30]).sum()
-    no_reg = pd.to_numeric(df[31]).sum()
+    co_pan_pri_prd = pan + pri + prd + pan_pri_prd
+    co_pt_mor = pt + mor + pt_mor
     panP = (pan*100)/total
     priP = (pri*100)/total
     prdP = (prd*100)/total
@@ -124,14 +125,13 @@ def dataGob():
     pesP = (pes*100)/total
     rspP = (rsp*100)/total
     fmP = (fm*100)/total
-    pan_pri_prdP = (pan_pri_prd*100)/total
+    pan_pri_prdP = (co_pan_pri_prd*100)/total
     pan_priP = (pan_pri*100)/total
     pan_prdP = (pan_prd*100)/total
     pri_prdP = (pri_prd*100)/total
-    pt_morP = (pt_mor*100)/total
-    no_regP = (no_reg*100)/total
+    pt_morP = (co_pt_mor*100)/total
     print(total)
-    data = { "PAN":{"Name":"none","votes":pan,"percent":panP},"PRI":{"Name":"none","votes":pri,"percent":priP},"PRD":{"Name":"none","votes":prd,"percent":prdP},"PT":{"Name":"none","votes":pt,"percent":ptP},"PVEM":{"Name":"none","votes":pvem,"percent":pvemP},"MC":{"Name":"ELISEO FERNANDEZ","votes":mc,"percent":mcP},"MOR":{"Name":"none","votes":mor,"percent":morP},"PES":{"Name":"NIC-THE-HA","votes":pes,"percent":pesP},"RSP":{"Name":"MARIA MAGDALENA","votes":rsp,"percent":rspP},"FM":{"Name":"LUIS ALONSO","votes":fm,"percent":fmP},"C_PAN_PRI_PRD": {"Name":"CHRISTIAN MISHEL","votes":pan_pri_prd,"percent":pan_pri_prdP}, "C_PAN_PRI":{"Name":"none","votes":pan_pri,"percent":pan_priP},"C_PAN_PRD":{"Name":"none","votes":pan_prd,"percent":pan_prdP}, "C_PRI_PRD": {"Name":"none","votes":pri_prd,"percent":pri_prdP}, "C_PT_MOR":{"Name":"LAYDA ELENA","votes":pt_mor,"percent":pt_morP},"NO_REGISTRADOS": {"Name":"none","votes":no_reg,"percent":no_regP} }
+    data = { "MC":{"Name":"ELISEO FERNANDEZ","votes":mc,"percent":mcP},"RSP":{"Name":"MARIA MAGDALENA","votes":rsp,"percent":rspP},"FM":{"Name":"LUIS ALONSO","votes":fm,"percent":fmP},"C_PAN_PRI_PRD": {"Name":"CHRISTIAN MISHEL","votes":co_pan_pri_prd,"percent":pan_pri_prdP}, "C_PT_MOR":{"Name":"LAYDA ELENA","votes":pt_mor,"percent":pt_morP}} }
     result = json.dumps(str(data))
     result = json.loads(result)
     result=result.replace("'", '"')
