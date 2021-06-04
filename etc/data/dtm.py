@@ -39,28 +39,45 @@ def dataAyun():
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     df = df.reset_index()
-    total = pd.to_numeric(df[34]).sum()
-    pan = pd.to_numeric(df[16]).sum()
-    pri = pd.to_numeric(df[17]).sum()
-    prd = pd.to_numeric(df[18]).sum()
-    pt = pd.to_numeric(df[19]).sum()
-    pvem = pd.to_numeric(df[20]).sum()
-    mc = pd.to_numeric(df[21]).sum()
-    mor = pd.to_numeric(df[22]).sum()
-    pes = pd.to_numeric(df[23]).sum()
-    rsp = pd.to_numeric(df[24]).sum()
-    fm = pd.to_numeric(df[25]).sum()
-    cand_ind = pd.to_numeric(df[26]).sum()
-    pan_pri_prd = pd.to_numeric(df[27]).sum()
-    pan_pri = pd.to_numeric(df[28]).sum()
-    pan_prd = pd.to_numeric(df[29]).sum()
-    pri_prd = pd.to_numeric(df[30]).sum()
-    no_reg = pd.to_numeric(df[31]).sum()
-    data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"CAND_IND": cand_ind,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
-    result = json.dumps(str(data))
-    result = json.loads(result)
-    result=result.replace("'", '"')
-    return result
+    df = df.drop(['index', 0, 1,2,3,4,6,7,8,9,10,11,12,13,14,15,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46], axis=1)
+    cols = df.columns.drop(5)
+    df[cols] = df[cols].apply(pd.to_numeric, errors='coerce')
+    df = df.groupby([5]).agg(
+        {16:'sum',
+        17:'sum',
+        18:'sum',
+        19:'sum',
+        20:'sum',
+        21:'sum',
+        22:'sum',
+        23:'sum',
+        24:'sum',
+        25:'sum',
+        26:'sum',
+        27:'sum',
+        }).reset_index()
+    df = df.rename(columns={
+        5: 'MUNICIPIO',
+        16:'PAN',
+        17:'PRI',
+        18:'PRD',
+        19:'PT',
+        20:'PVEM',
+        21:'MC',
+        22:'MOR',
+        23:'PES',
+        24:'RSP',
+        25:'FM',
+        26:'CI-1',
+        27:'PAN_PRI_PRD_a',
+    })
+    df = df.rename(index={0: 'CALAKMUL',1: 'CALKINI',2: 'CAMPECHE',3: 'CANDELARIA',4: 'CARMEN',5: 'CHAMPOTON',6: 'DZITBALCHE',7: 'ESCARCEGA',8: 'HECELCHAKAN',9: 'HOPELCHEN',10: 'PALIZADA',11: 'SEYBAPLAYA',12: 'TENABO'})
+    rc = ['PAN','PRI','PRD','PAN_PRI_PRD_a']
+    df['PAN_PRI_PRD'] = df[rc].sum(axis=1)
+    df = df.drop(['MUNICIPIO','PAN','PRI','PRD','PAN_PRI_PRD_a'], axis=1)
+    result = df.to_json(orient="index")
+    parsed = json.loads(result)
+    return json.dumps(parsed, indent=4)
 
 def dataDip():
     content = os.listdir('./etc/data/files')
@@ -68,6 +85,7 @@ def dataDip():
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4,5]])
+    df = df.fillna(0)
     total = pd.to_numeric(df[33]).sum()
     pan = pd.to_numeric(df[16]).sum()
     pri = pd.to_numeric(df[17]).sum()
@@ -97,6 +115,7 @@ def dataGob():
     # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
+    df = df.fillna(0)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     total = pd.to_numeric(df[34]).sum()
     pan = pd.to_numeric(df[16]).sum()
@@ -155,6 +174,7 @@ def dataJuntas():
     # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_JUNTAS_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_JUNTAS_CAMP/CAMP_JUNTAS_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
+    df = df.fillna(0)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     total = pd.to_numeric(df[33]).sum()
     pan = pd.to_numeric(df[16]).sum()
