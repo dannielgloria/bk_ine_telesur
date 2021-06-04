@@ -80,11 +80,12 @@ def dataDip():
     rsp = pd.to_numeric(df[24]).sum()
     fm = pd.to_numeric(df[25]).sum()
     pan_pri_prd = pd.to_numeric(df[26]).sum()
+    co_pan_pri_prd = pan + pri + prd + pan_pri_prd
     pan_pri = pd.to_numeric(df[27]).sum()
     pan_prd = pd.to_numeric(df[28]).sum()
     pri_prd = pd.to_numeric(df[29]).sum()
     no_reg = pd.to_numeric(df[30]).sum()
-    data = { "PAN":pan,"PRI":pri,"PRD":prd,"PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": pan_pri_prd, "C_PAN_PRI":pan_pri,"C_PAN_PRD": pan_prd, "C_PRI_PRD": pri_prd,"NO_REGISTRADOS": no_reg }
+    data = { "PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": co_pan_pri_prd }
     result = json.dumps(str(data))
     result = json.loads(result)
     result=result.replace("'", '"')
