@@ -46,6 +46,7 @@ rc = ['PAN','PRI','PRD','PAN_PRI_PRD_a']
 df['PAN_PRI_PRD'] = df[rc].sum(axis=1)
 df = df.drop(['CONGRESO','PAN','PRI','PRD','PAN_PRI_PRD_a'], axis=1)
 df = df.T
+print (df)
 I = pd.DataFrame(df['I'])
 I = I.sort_values('I',ascending=False)
 I = I.head().T
