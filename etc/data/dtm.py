@@ -236,38 +236,7 @@ def dataAyun():
 
     result = '{'+CALAKMUL+','+CALKINI+','+CAMPECHE+','+CANDELARIA+','+CARMEN+','+CHAMPOTON+','+CHAMPOTON+','+ESCARCEGA+','+HECELCHAKAN+','+PALIZADA+','+SEYBAPLAYA+','+TENABO+'}'
     return result
-
-def dataDip():
-    content = os.listdir('./etc/data/files')
-    # df = pd.read_csv('./etc/data/files/'+content[3]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
-    df = df[0].str.split(',', expand=True)
-    df = df.drop(df.index[[0,1,2,3,4,5]])
-    df = df.fillna(0)
-    total = pd.to_numeric(df[33]).sum()
-    pan = pd.to_numeric(df[16]).sum()
-    pri = pd.to_numeric(df[17]).sum()
-    prd = pd.to_numeric(df[18]).sum()
-    pt = pd.to_numeric(df[19]).sum()
-    pvem = pd.to_numeric(df[20]).sum()
-    mc = pd.to_numeric(df[21]).sum()
-    mor = pd.to_numeric(df[22]).sum()
-    pes = pd.to_numeric(df[23]).sum()
-    rsp = pd.to_numeric(df[24]).sum()
-    fm = pd.to_numeric(df[25]).sum()
-    pan_pri_prd = pd.to_numeric(df[26]).sum()
-    co_pan_pri_prd = pan + pri + prd + pan_pri_prd
-    pan_pri = pd.to_numeric(df[27]).sum()
-    pan_prd = pd.to_numeric(df[28]).sum()
-    pri_prd = pd.to_numeric(df[29]).sum()
-    no_reg = pd.to_numeric(df[30]).sum()
-    data = { "PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": co_pan_pri_prd }
-    result = json.dumps(str(data))
-    result = json.loads(result)
-    result=result.replace("'", '"')
-    return result
     
-
 def dataGob():
     content = os.listdir('./etc/data/files')
     # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
@@ -644,6 +613,51 @@ def dataCongreso():
     XXI = '"XXI":{'+XXI+"}"
 
     result = '{'+I+','+II+','+III+','+IV+','+V+','+VI+','+VII+','+VIII+','+IX+','+X+','+XI+','+XII+','+XIII+','+XIV+','+XV+','+XVI+','+XVII+','+XVIII+','+XIX+','+XX+','+XXI+'}'
+    return result
+
+def dataDip():
+    # content = os.listdir('./etc/data/files')
+    # # df = pd.read_csv('./etc/data/files/'+content[3]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    # df = df[0].str.split(',', expand=True)
+    # df = df.drop(df.index[[0,1,2,3,4,5]])
+    # df = df.fillna(0)
+    # total = pd.to_numeric(df[33]).sum()
+    # pan = pd.to_numeric(df[16]).sum()
+    # pri = pd.to_numeric(df[17]).sum()
+    # prd = pd.to_numeric(df[18]).sum()
+    # pt = pd.to_numeric(df[19]).sum()
+    # pvem = pd.to_numeric(df[20]).sum()
+    # mc = pd.to_numeric(df[21]).sum()
+    # mor = pd.to_numeric(df[22]).sum()
+    # pes = pd.to_numeric(df[23]).sum()
+    # rsp = pd.to_numeric(df[24]).sum()
+    # fm = pd.to_numeric(df[25]).sum()
+    # pan_pri_prd = pd.to_numeric(df[26]).sum()
+    # co_pan_pri_prd = pan + pri + prd + pan_pri_prd
+    # pan_pri = pd.to_numeric(df[27]).sum()
+    # pan_prd = pd.to_numeric(df[28]).sum()
+    # pri_prd = pd.to_numeric(df[29]).sum()
+    # no_reg = pd.to_numeric(df[30]).sum()
+    # data = { "PT":pt,"PVEM":pvem,"MC":mc,"MOR":mor,"PES":pes,"RSP":rsp,"FM":fm,"C_PAN_PRI_PRD": co_pan_pri_prd }
+    # result = json.dumps(str(data))
+    # result = json.loads(result)
+    # result=result.replace("'", '"')
+    result = dataCongreso()
+    result = result.replace(':{"GANADOR":',':')
+    result = result.replace('"}','"')
+    data = json.loads(result)
+    df = pd.json_normalize(data)
+    df = pd.DataFrame(df).T
+    PT = df[0].str.contains('PT').value_counts()[True]
+    PVEM = df[0].str.contains('PVEM').value_counts()[True]
+    MC = df[0].str.contains('MC').value_counts()[True]
+    MOR = df[0].str.contains('MOR').value_counts()[True]
+    PES = df[0].str.contains('PES').value_counts()[True]
+    RSP = df[0].str.contains('RSP').value_counts()[True]
+    FM = df[0].str.contains('FM').value_counts()[True]
+    PAN_PRI_PRD = df[0].str.contains('PAN_PRI_PRD').value_counts()[True]
+    result = '{"PT":'+str(PT)+',"PVEM":'+str(PVEM)+',"MC":'+str(MC)+',"MOR":'+str(MOR)+',"PES":'+str(PES)+',"RSP":'+str(RSP)+',"FM":'+str(FM)+',"PAN_PRI_PRD":'+str(PAN_PRI_PRD)+'}'
     return result
 
 def dataTimeds():
