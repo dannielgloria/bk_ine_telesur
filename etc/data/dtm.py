@@ -210,7 +210,6 @@ def dataCongreso():
     rc = ['PAN','PRI','PRD','PAN_PRI_PRD_a']
     df['PAN_PRI_PRD'] = df[rc].sum(axis=1)
     df = df.drop(['CONGRESO','PAN','PRI','PRD','PAN_PRI_PRD_a'], axis=1)
-    df = df.T
     result = df.to_json(orient="index")
     parsed = json.loads(result)
     a = json.dumps(parsed, indent=4)
@@ -222,7 +221,10 @@ def dataTimeds():
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.reset_index()
-    result = str(df.loc[1,0]).replace('(UTC-5)', '') 
+    result = str(df.loc[1,0]).replace(' (UTC-5)', '') 
+    result = {'hora':result}
+    result = str(result)
+    result=result.replace("'", '"')
     return result
 
 def direcciones():
@@ -233,3 +235,4 @@ def removeDS_Store():
     os.remove('./etc/data/files/.DS_Store')
     return ('DS_Store deleted')
 
+print (dataTimeds())
