@@ -31,9 +31,9 @@ def get_dataGobCand():
     resp = dataGobCand()
     return resp
 
-@app.route('/datosJuntas',methods=['GET'])
-def get_dataJuntas():
-    resp = dataJuntas()
+@app.route('/datosCongreso',methods=['GET'])
+def get_dataCongreso():
+    resp = dataCongreso()
     return resp
 
 @app.route('/desatoraDatos',methods=['GET'])
