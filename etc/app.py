@@ -3,7 +3,7 @@ import time
 import json
 from flask_cors import CORS
 from flask import Flask, request, flash, jsonify
-from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataCongreso, removeDS_Store, direcciones, dataTimeds
+from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataCongreso, removeDS_Store, direcciones, dataTimeds, dataBanner
 # from data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas
 
 # FLASK Instance my application
@@ -34,6 +34,11 @@ def get_dataGobCand():
 @app.route('/datosCongreso',methods=['GET'])
 def get_dataCongreso():
     resp = dataCongreso()
+    return resp
+
+@app.route('/datosBanner',methods=['GET'])
+def get_dataBanner():
+    resp = dataBanner()
     return resp
 
 @app.route('/desatoraDatos',methods=['GET'])
