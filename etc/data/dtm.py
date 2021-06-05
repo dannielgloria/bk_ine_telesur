@@ -213,7 +213,8 @@ def dataCongreso():
     df = df.T
     result = df.to_json(orient="index")
     parsed = json.loads(result)
-    return json.dumps(parsed, indent=4)
+    a = json.dumps(parsed, indent=4)
+    return a
 
 def dataTimeds():
     content = os.listdir('./etc/data/files')
@@ -221,7 +222,7 @@ def dataTimeds():
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.reset_index()
-    result = df.loc[1,0]
+    result = str(df.loc[1,0]).replace('(UTC-5)', '') 
     return result
 
 def direcciones():
