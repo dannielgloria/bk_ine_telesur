@@ -643,7 +643,7 @@ def dataCongreso():
     XXI = XXI[0]
     XXI = '"XXI":{'+XXI+"}"
 
-    result = '{'+I+','+II+','+III+','+IV+','+V+','+VI+','+VI+','+VII+','+VIII+','+IX+','+X+','+XI+','+XII+','+XIII+','+XIV+','+XV+','+XVI+','+XVII+','+XVIII+','+XIX+','+XX+','+XXI+'}'
+    result = '{'+I+','+II+','+III+','+IV+','+V+','+VI+','+VII+','+VIII+','+IX+','+X+','+XI+','+XII+','+XIII+','+XIV+','+XV+','+XVI+','+XVII+','+XVIII+','+XIX+','+XX+','+XXI+'}'
     return result
 
 def dataTimeds():
