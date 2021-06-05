@@ -210,7 +210,7 @@ def dataCongreso():
     rc = ['PAN','PRI','PRD','PAN_PRI_PRD_a']
     df['PAN_PRI_PRD'] = df[rc].sum(axis=1)
     df = df.drop(['CONGRESO','PAN','PRI','PRD','PAN_PRI_PRD_a'], axis=1)
-    df = df.T
+    # df = df.T
     result = df.to_json(orient="index")
     parsed = json.loads(result)
     a = json.dumps(parsed, indent=4)
