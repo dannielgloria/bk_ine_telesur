@@ -47,3 +47,9 @@ def get_direcciones():
     resp = str(direcciones())
     # resp.status_code=200
     return resp
+
+@app.route('/horaDatos',methods=['GET'])
+def get_dataTime():
+    resp = dataTimeds()
+    # resp.status_code=200
+    return resp

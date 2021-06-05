@@ -215,6 +215,15 @@ def dataCongreso():
     parsed = json.loads(result)
     return json.dumps(parsed, indent=4)
 
+def dataTimeds():
+    content = os.listdir('./etc/data/files')
+    # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    df = df[0].str.split(',', expand=True)
+    df = df.reset_index()
+    result = df.loc[1,0]
+    return result
+
 def direcciones():
     content = os.listdir('./etc/data/files')
     return content
