@@ -652,6 +652,10 @@ def dataTimeds():
     df = df[0].str.split(',', expand=True)
     df = df.reset_index()
     result = str(df.loc[1,0]).replace(' (UTC-5)', '') 
+    result = result.replace('/',' ')
+    result = result.split()
+    result = 'Junio ' + result[0] + '  ' + result[3]
+    print (result)
     result = {'hora':result}
     result = str(result)
     result=result.replace("'", '"')
@@ -1248,5 +1252,3 @@ def direcciones():
 def removeDS_Store():
     os.remove('./etc/data/files/.DS_Store')
     return ('DS_Store deleted')
-
-print (dataTimeds())
