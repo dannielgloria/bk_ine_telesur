@@ -654,7 +654,7 @@ def dataTimeds():
     result = str(df.loc[1,0]).replace(' (UTC-5)', '') 
     result = result.replace('/',' ')
     result = result.split()
-    result = 'Junio ' + result[0] + '  ' + result[3]
+    result = 'Junio ' + result[0] + '       ' + result[3]
     print (result)
     result = {'hora':result}
     result = str(result)
