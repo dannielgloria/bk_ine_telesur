@@ -7,14 +7,15 @@ import pandas as pd
 from shutil import rmtree
 from pytz import timezone
 
-def getDataSet():
+
+def getDataSet(url):
     # utc = timezone('UTC')
     # loc = utc.localize(datetime.datetime.now())
     # mexico = timezone("America/Mexico_City")
     # now = loc.astimezone(mexico)
     # date = now.strftime('%Y%m%d_%H%M')
     rmtree('./etc/data/files')
-    url = 'https://difusores.prep2021-cam.mx/assets/entregables/55/1/20210601_1852_PREP_CAMP.zip'
+    # url = 'https://difusores.prep2021-cam.mx/assets/entregables/55/1/20210601_1852_PREP_CAMP.zip'
     myfile = requests.get(url)
     filename = '2021.zip'
     zfile = open(filename,'wb')
@@ -34,6 +35,7 @@ def getDataSet():
 def dataAyun():
     #     os.remove('./etc/data/files/.DS_Store')
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[1]+'/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
@@ -269,6 +271,7 @@ def dataDip():
 
 def dataGob():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
@@ -316,6 +319,7 @@ def dataGob():
 
 def dataGobCand():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_CANDIDATURA_2021.csv')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_CANDIDATURA_2021.csv')
     df = df.drop(columns=['ID_ESTADO'])
@@ -328,6 +332,7 @@ def dataGobCand():
     
 def dataCongreso():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
@@ -647,6 +652,7 @@ def dataCongreso():
 
 def dataTimeds():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
@@ -663,6 +669,7 @@ def dataTimeds():
 
 def dataBanner():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
@@ -1247,6 +1254,7 @@ def dataBanner():
     
 def direcciones():
     content = os.listdir('./etc/data/files')
+    content = content.sort()
     return content
 
 def removeDS_Store():

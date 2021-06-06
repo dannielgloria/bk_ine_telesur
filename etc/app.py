@@ -3,7 +3,7 @@ import time
 import json
 from flask_cors import CORS
 from flask import Flask, request, flash, jsonify
-from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataCongreso, removeDS_Store, direcciones, dataTimeds, dataBanner
+from etc.data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataCongreso, removeDS_Store, direcciones, dataTimeds, dataBanner, getDataSet
 # from data.dtm import dataAyun, dataDip, dataGob, dataGobCand, dataJuntas
 
 # FLASK Instance my application
@@ -11,6 +11,14 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 # CORS(app)
 
+@app.route('/subirVotos', methods=['PUT'])
+def put_votos():
+    son_data = request.get_json()
+    url = json_data['Url']
+    getDataSet(url)
+    resp = "Los datos han sido actualizados"
+    return resp
+    
 @app.route('/datosAyuntamiento',methods=['GET'])
 def get_dataAyun():
     resp = dataAyun()
