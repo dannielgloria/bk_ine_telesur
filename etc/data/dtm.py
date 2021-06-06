@@ -34,10 +34,21 @@ def getDataSet(url):
 
 def dataAyun():
     #     os.remove('./etc/data/files/.DS_Store')
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[1]+'/CAMP_AYUN_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     df = df.reset_index()
@@ -270,10 +281,21 @@ def dataDip():
     return result
 
 def dataGob():
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_2021.csv', header=None, sep='\n')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_GOB_CAMP/CAMP_GOB_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.fillna(0)
     df = df.drop(df.index[[0,1,2,3,4,5]])
@@ -318,10 +340,21 @@ def dataGob():
     return result
 
 def dataGobCand():
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[0]+'/CAMP_GOB_CANDIDATURA_2021.csv')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_CANDIDATURA_2021.csv')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_GOB_CAMP/CAMP_GOB_CANDIDATURA_2021.csv')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_GOB_CAMP/CAMP_GOB_CANDIDATURA_2021.csv')
     df = df.drop(columns=['ID_ESTADO'])
     df = df.set_index('PARTIDO_CI')
     result = str(df.to_json())
@@ -331,10 +364,21 @@ def dataGobCand():
     return result
     
 def dataCongreso():
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     df = df.reset_index()
@@ -651,10 +695,22 @@ def dataCongreso():
     return result
 
 def dataTimeds():
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    # content = os.listdir('./etc/data/files')
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_DIP_LOC_CAMP/CAMP_DIP_LOC_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.reset_index()
     result = str(df.loc[1,0]).replace(' (UTC-5)', '') 
@@ -668,10 +724,21 @@ def dataTimeds():
     return result
 
 def dataBanner():
-    content = os.listdir('./etc/data/files')
-    content = content.sort()
-    # df = pd.read_csv('./etc/data/files/'+content[2]+'/CAMP_AYUN_2021.csv', header=None, sep='\n')
-    df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
+    carpeta = os.listdir("./etc/data/files/")
+    dirname = carpeta[0] 
+    dirname =  dirname[:14]
+    dirname2 = carpeta[2] 
+    dirname2 =  dirname2[:14]
+    dirname3 = carpeta[1] 
+    dirname3 =  dirname3[:14]
+    if (dirname != dirname2):
+        print('si fue distinto')
+        dirname = dirname3
+    else:
+        print('no fue distinto')
+        dirname = dirname3
+    df = pd.read_csv('./etc/data/files/'+dirname+'PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
+    # df = pd.read_csv('./etc/data/files/20210601_1852_PREP_AYUN_CAMP/CAMP_AYUN_2021.csv', header=None, sep='\n')
     df = df[0].str.split(',', expand=True)
     df = df.drop(df.index[[0,1,2,3,4,5]])
     df = df.reset_index()
@@ -1253,8 +1320,7 @@ def dataBanner():
     return result
     
 def direcciones():
-    content = os.listdir('./etc/data/files')
-    # content = content.sort()
+    content = os.listdir('./etc/data/files') 
     return content
 
 def removeDS_Store():
