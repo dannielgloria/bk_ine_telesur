@@ -1254,7 +1254,7 @@ def dataBanner():
     
 def direcciones():
     content = os.listdir('./etc/data/files')
-    content = content.sort()
+    # content = content.sort()
     return content
 
 def removeDS_Store():
