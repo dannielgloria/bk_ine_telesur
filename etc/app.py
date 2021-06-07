@@ -13,7 +13,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/subirVotos', methods=['PUT'])
 def put_votos():
-    son_data = request.get_json()
+    json_data = request.get_json()
     url = json_data['Url']
     getDataSet(url)
     resp = "Los datos han sido actualizados"
