@@ -26,7 +26,8 @@ def get_dataAyun():
 
 @app.route('/datosDiputaciones',methods=['GET'])
 def get_dataDiputaciones():
-    resp = dataDip()
+    # resp = dataDip()
+    resp = '{"PT":0,,"MC":0,"PVEM":0,"MOR":5,"PES":0,"RSP":0,"FM":0,"PAN_PRI_PRD":3}'
     return resp
 
 @app.route('/datosGobernatura',methods=['GET'])
@@ -42,7 +43,7 @@ def get_dataGobCand():
 @app.route('/datosCongreso',methods=['GET'])
 def get_dataCongreso():
     # resp = dataCongreso()
-    resp = '{"I":{"GANADOR":""},"II":{"GANADOR":""},"III":{"GANADOR":""},"IV":{"GANADOR":""},"V":{"GANADOR":""},"VI":{"GANADOR":""},"VII":{"GANADOR":""},"VIII":{"GANADOR":""},"IX":{"GANADOR":""},"X":{"GANADOR":""},"XI":{"GANADOR":"MOR"},"XII":{"GANADOR":""},"XIII":{"GANADOR":""},"XIV":{"GANADOR":"PAN_PRI_PRD"},"XV":{"GANADOR":""},"XVI":{"GANADOR":""},"XVII":{"GANADOR":""},"XVIII":{"GANADOR":"MOR"},"XIX":{"GANADOR":""},"XX":{"GANADOR":"MOR"},"XXI":{"GANADOR":"MOR"}}'
+    resp = '{"I":{"GANADOR":""},"II":{"GANADOR":""},"III":{"GANADOR":""},"IV":{"GANADOR":""},"V":{"GANADOR":""},"VI":{"GANADOR":""},"VII":{"GANADOR":""},"VIII":{"GANADOR":""},"IX":{"GANADOR":"MOR"},"X":{"GANADOR":""},"XI":{"GANADOR":"MOR"},"XII":{"GANADOR":""},"XIII":{"GANADOR":"PAN_PRI_PRD"},"XIV":{"GANADOR":"MOR"},"XV":{"GANADOR":""},"XVI":{"GANADOR":""},"XVII":{"GANADOR":""},"XVIII":{"GANADOR":"PAN_PRI_PRD"},"XIX":{"GANADOR":""},"XX":{"GANADOR":"PAN_PRI_PRD"},"XXI":{"GANADOR":"MOR"}}'
     return resp
 
 @app.route('/datosBanner',methods=['GET'])
