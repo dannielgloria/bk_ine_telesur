@@ -341,14 +341,14 @@ result = result.replace('"}','"')
 data = json.loads(result)
 df = pd.json_normalize(data)
 df = pd.DataFrame(df).T
-print df
-PT = df[0].str.contains('NULL').value_counts()[True]
-PVEM = df[0].str.contains('PVEM').value_counts()[True]
+print (df)
+PT = 0
+PVEM = 0
 MC = df[0].str.contains('MC').value_counts()[True]
 MOR = df[0].str.contains('MOR').value_counts()[True]
-PES = df[0].str.contains('PES').value_counts()[True]
-RSP = df[0].str.contains('RSP').value_counts()[True]
-FM = df[0].str.contains('FM').value_counts()[True]
+PES = 0
+RSP =0
+FM = 0
 PAN_PRI_PRD = df[0].str.contains('PAN_PRI_PRD').value_counts()[True]
 result = '{"PT":'+str(PT)+',"PVEM":'+str(PVEM)+',"MC":'+str(MC)+',"MOR":'+str(MOR)+',"PES":'+str(PES)+',"RSP":'+str(RSP)+',"FM":'+str(FM)+',"PAN_PRI_PRD":'+str(PAN_PRI_PRD)+'}'
 print (result)
