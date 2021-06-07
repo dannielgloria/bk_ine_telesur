@@ -596,13 +596,18 @@ def dataDip():
     data = json.loads(result)
     df = pd.json_normalize(data)
     df = pd.DataFrame(df).T
-    PT = df[0].str.contains('PT').value_counts()[True]
-    PVEM = df[0].str.contains('PVEM').value_counts()[True]
+    # PT = df[0].str.contains('PT').value_counts()[True]
+    PT = 0
+    #   PVEM = df[0].str.contains('PVEM').value_counts()[True]
+    PVEM = 0
     MC = df[0].str.contains('MC').value_counts()[True]
     MOR = df[0].str.contains('MOR').value_counts()[True]
-    PES = df[0].str.contains('PES').value_counts()[True]
-    RSP = df[0].str.contains('RSP').value_counts()[True]
-    FM = df[0].str.contains('FM').value_counts()[True]
+    # PES = df[0].str.contains('PES').value_counts()[True]
+    PES = 0
+    # RSP = df[0].str.contains('RSP').value_counts()[True]
+    # FM = df[0].str.contains('FM').value_counts()[True]
+    RSP = 0
+    FM = 0
     PAN_PRI_PRD = df[0].str.contains('PAN_PRI_PRD').value_counts()[True]
     result = '{"PT":'+str(PT)+',"PVEM":'+str(PVEM)+',"MC":'+str(MC)+',"MOR":'+str(MOR)+',"PES":'+str(PES)+',"RSP":'+str(RSP)+',"FM":'+str(FM)+',"PAN_PRI_PRD":'+str(PAN_PRI_PRD)+'}'
     return result
