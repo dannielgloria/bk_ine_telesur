@@ -605,7 +605,7 @@ def dataDip():
     # # FM = df[0].str.contains('FM').value_counts()[True]
     # PAN_PRI_PRD = df[0].str.contains('PAN_PRI_PRD').value_counts()[True]
     PT = 0
-    VEM = 0
+    PVEM = 0
     MC = df[0].str.contains('MC').value_counts()[True]
     MOR = df[0].str.contains('MOR').value_counts()[True]
     PES = 0
