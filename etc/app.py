@@ -26,8 +26,7 @@ def get_dataAyun():
 
 @app.route('/datosDiputaciones',methods=['GET'])
 def get_dataDiputaciones():
-    # resp = dataDip()
-    resp = '{"PT":0,,"MC":0,"PVEM":0,"MOR":5,"PES":0,"RSP":0,"FM":0,"PAN_PRI_PRD":3}'
+    resp = dataDip()
     return resp
 
 @app.route('/datosGobernatura',methods=['GET'])
