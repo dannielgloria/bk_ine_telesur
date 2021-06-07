@@ -636,7 +636,7 @@ def dataGob():
     df = df[0].str.split(',', expand=True)
     df = df.fillna(0)
     df = df.drop(df.index[[0,1,2,3,4,5,1195,1196,1197]])
-    total = pd.to_numeric(df[33]).sum()
+    total = pd.to_numeric(df[34]).sum()
     pan = pd.to_numeric(df[16]).sum()
     pri = pd.to_numeric(df[17]).sum()
     prd = pd.to_numeric(df[18]).sum()
