@@ -42,7 +42,7 @@ def get_dataGobCand():
 @app.route('/datosCongreso',methods=['GET'])
 def get_dataCongreso():
     # resp = dataCongreso()
-    resp = '{"I":{"GANADOR":""},"II":{"GANADOR":""},"III":{"GANADOR":""},"IV":{"GANADOR":""},"V":{"GANADOR":""},"VI":{"GANADOR":""},"VII":{"GANADOR":""},"VIII":{"GANADOR":""},"IX":{"GANADOR":""},"X":{"GANADOR":""},"XI":{"GANADOR":"MOR"},"XII":{"GANADOR":""},"XIII":{"GANADOR":""},"XIV":{"GANADOR":""},"XV":{"GANADOR":""},"XVI":{"GANADOR":""},"XVII":{"GANADOR":""},"XVIII":{"GANADOR":"MOR"},"XIX":{"GANADOR":""},"XX":{"GANADOR":""},"XXI":{"GANADOR":"PAN_PRI_PRD"}}'
+    resp = '{"I":{"GANADOR":""},"II":{"GANADOR":""},"III":{"GANADOR":""},"IV":{"GANADOR":""},"V":{"GANADOR":""},"VI":{"GANADOR":""},"VII":{"GANADOR":""},"VIII":{"GANADOR":""},"IX":{"GANADOR":""},"X":{"GANADOR":""},"XI":{"GANADOR":"MOR"},"XII":{"GANADOR":""},"XIII":{"GANADOR":""},"XIV":{"GANADOR":"PAN_PRI_PRD"},"XV":{"GANADOR":""},"XVI":{"GANADOR":""},"XVII":{"GANADOR":""},"XVIII":{"GANADOR":"MOR"},"XIX":{"GANADOR":""},"XX":{"GANADOR":"MOR"},"XXI":{"GANADOR":"MOR"}}'
     return resp
 
 @app.route('/datosBanner',methods=['GET'])
