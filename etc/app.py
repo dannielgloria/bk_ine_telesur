@@ -15,6 +15,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 def put_votos():
     json_data = request.get_json()
     url = json_data['Url']
+    print (url)
     getDataSet(url)
     resp = "Los datos han sido actualizados"
     return resp
