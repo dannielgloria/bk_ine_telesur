@@ -42,8 +42,7 @@ def get_dataGobCand():
 
 @app.route('/datosCongreso',methods=['GET'])
 def get_dataCongreso():
-    # resp = dataCongreso()
-    resp = '{"I":{"GANADOR":""},"II":{"GANADOR":""},"III":{"GANADOR":""},"IV":{"GANADOR":""},"V":{"GANADOR":""},"VI":{"GANADOR":""},"VII":{"GANADOR":""},"VIII":{"GANADOR":""},"IX":{"GANADOR":"MOR"},"X":{"GANADOR":""},"XI":{"GANADOR":"MOR"},"XII":{"GANADOR":""},"XIII":{"GANADOR":"PAN_PRI_PRD"},"XIV":{"GANADOR":"MOR"},"XV":{"GANADOR":""},"XVI":{"GANADOR":""},"XVII":{"GANADOR":""},"XVIII":{"GANADOR":"PAN_PRI_PRD"},"XIX":{"GANADOR":""},"XX":{"GANADOR":"PAN_PRI_PRD"},"XXI":{"GANADOR":"MOR"}}'
+    resp = dataCongreso()
     return resp
 
 @app.route('/datosBanner',methods=['GET'])
