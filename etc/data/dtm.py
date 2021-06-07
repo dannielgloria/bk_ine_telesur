@@ -660,7 +660,7 @@ def dataGob():
     pri_prdP = round(((pri_prd*100)/total),1)
     pt_morP = round(((co_pt_mor*100)/total),1)
     print(total)
-    data = { "PVEM":{"Name":"SANDRA GUADALUPE","votes":pvem,"percent":pvemP},"MC":{"Name":"ELISEO FERNANDEZ","votes":mc,"percent":mcP},"PES":{"Name":"NIC-THE-HA AGUILERA","votes":pes,"percent":pesP},"RSP":{"Name":"MARIA MAGDALENA","votes":rsp,"percent":rspP},"FM":{"Name":"LUIS ALONSO","votes":fm,"percent":fmP},"C_PAN_PRI_PRD": {"Name":"CHRISTIAN MISHEL","votes":co_pan_pri_prd,"percent":pan_pri_prdP}, "C_PT_MOR":{"Name":"LAYDA ELENA","votes":co_pt_mor,"percent":pt_morP}}
+    data = { "PVEM":{"Name":"SANDRA","votes":pvem,"percent":pvemP},"MC":{"Name":"ELISEO","votes":mc,"percent":mcP},"PES":{"Name":"NIC-THE-HA","votes":pes,"percent":pesP},"RSP":{"Name":"MARIA","votes":rsp,"percent":rspP},"FM":{"Name":"LUIS","votes":fm,"percent":fmP},"C_PAN_PRI_PRD": {"Name":"CHRISTIAN","votes":co_pan_pri_prd,"percent":pan_pri_prdP}, "C_PT_MOR":{"Name":"LAYDA","votes":co_pt_mor,"percent":pt_morP}}
     result = json.dumps(str(data))
     result = json.loads(result)
     result=result.replace("'", '"')
